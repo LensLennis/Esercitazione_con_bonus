@@ -10,10 +10,8 @@
 /// @brief default constructor 
 Right_trapezoid::Right_trapezoid() {
 
-	cout << "Right trapezoid - constructor - default" << endl;
-
 	Init();
-
+	cout << "Right trapezoid - constructor - default" << endl;
 }
 
 /// @brief constructor
@@ -23,42 +21,24 @@ Right_trapezoid::Right_trapezoid() {
 Right_trapezoid::Right_trapezoid(float ts, float h,float bs) {
 
 	Init();
-
+	SetDim(ts, h, bs);
 	cout << "Right trapezoid - constructor" << endl;
-
-	if (ts <= 0.)
-		cout << "WARNING: Right trapezoid - constructor: top side length should be > 0" << endl;
-	else
-		top_side = ts;
-
-	if (h <= 0.)
-		cout << "WARNING: Right trapezoid - constructor: height should be > 0" << endl;
-	else 
-		height = h;
-
-	if (bs <= 0.)
-		cout << "WARNING: Right trapezoid  - constructor: bottom side length should be > 0" << endl;
-	else
-		bottom_side = bs;
-
 }
 
 
 /// @brief destructor 
 Right_trapezoid::~Right_trapezoid() {
-
-	cout << "Right trapezoid - destructor" << endl;
+		
 	Reset();
-
+	cout << "Right trapezoid - destructor" << endl;
 }
 
 /// @brief copy constructor 
 /// @param rt reference to the object that should be copied 
 Right_trapezoid::Right_trapezoid(const Right_trapezoid& rt) {
 
-	cout << "Right trapezoid - copy constructor" << endl;
-
 	Init(rt);
+	cout << "Right trapezoid - copy constructor" << endl;
 
 }
 
@@ -114,12 +94,10 @@ void Right_trapezoid::Reset() {
 /// @param ts top side
 void Right_trapezoid::SetTopSide(float ts) {
 
-	if (ts < 0.) {
-		cout << "WARNING: Right Trapezoid - SetTopSide: top side length should be > 0" << endl;
-		return;
-	}
-
-	top_side = ts;
+	if (ts <= 0.)
+		ErrorMessage("constructor : top side length should be > 0");
+	else
+		top_side = ts;
 
 }
 
@@ -127,24 +105,22 @@ void Right_trapezoid::SetTopSide(float ts) {
 /// @param h height
 void Right_trapezoid::SetHeight(float h) {
 
-	if (h < 0.) {
-		cout << "WARNING: Right Trapezoid - SetHeight: height should be > 0" << endl;
-		return;
-	}
-
-	height = h;
+	if (h <= 0.)
+		ErrorMessage("constructor: height should be > 0");
+	else
+		height = h;
 
 }
 
 /// @brief setting bottom side
 /// @param bs bottom side
 void Right_trapezoid::SetBottomSide(float bs) {
-	if (bs < 0.) {
-		cout << "WARNING: Right Trapezoid - SetBottomSide: bottom side lenght should be > 0" << endl;
-		return;
-	}
 
-	bottom_side = bs;
+	if (bs <= 0.)
+		ErrorMessage("constructor: bottom side length should be > 0");
+	else
+		bottom_side = bs;
+
 
 }
 
@@ -276,14 +252,39 @@ void Right_trapezoid::Dump() {
 	cout << "|Height = " << height << endl;
 	cout << "|Bottom side = " << bottom_side << endl;
 	cout << "|Oblique side = " << GetSide() << endl;
-	cout << "|Perimeter = " << GetPerimeter() << endl;
-	cout << "|Area = " << GetArea() << endl;
+	cout << "*--------------------*" << endl;
 	cout << endl;
-
+	Polygon::Dump();
+	
 }
 
 
 void Right_trapezoid::Draw() {
+	
+		
 
+}
 
+/// @brief Defining the operator <<
+/// @param out the output
+/// @param r right operand 
+/// @return output
+ostream& operator << (ostream& out, Right_trapezoid& r) {
+	r.Dump();
+	return out;
+}
+
+/// @brief Defining the operator >>
+/// @param in the input
+/// @param r right operand
+/// @return input
+istream& operator >> (istream& in, Right_trapezoid& r) {
+	float l;							
+	in >> l;
+	r.SetTopSide(l);
+	in >> l;
+	r.SetHeight(l);
+	in >> l;
+	r.SetBottomSide(l);
+	return in;
 }

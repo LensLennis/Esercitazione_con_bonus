@@ -19,9 +19,9 @@ private:
 	float top_side;
 	float height;
 	float bottom_side;
-	float CalcSide();
-	float Area();
-	float Perimeter();
+	float CalcSide();			//If there are other subclasses	this is virtual
+	float Area();				//If there are other subclasses	this is virtual
+	float Perimeter();			//If there are other subclasses	this is virtual
 	
 public:
 
@@ -31,13 +31,15 @@ public:
 	Right_trapezoid(float ts, float h, float bs );
 	Right_trapezoid(const Right_trapezoid& rt);
 
-	~Right_trapezoid();
+	~Right_trapezoid();			//If there are other subclasses	this is virtual
 	/// @}
 
 	/// @name OPERATORS
 	/// @{
 	Right_trapezoid& operator=(const Right_trapezoid& rt);
 	bool operator==(const Right_trapezoid& rt);
+	
+
 	/// @}
 
 	/// @name BASIC HANDLING
@@ -74,6 +76,9 @@ public:
 	/// @}
 
 	void Draw();
+
 };
+ostream& operator<< (ostream& out, Right_trapezoid& r);
+istream& operator>> (istream& in, Right_trapezoid& r);
 
 #endif
