@@ -1,5 +1,8 @@
 #include "polygon.h"
 
+
+
+
 /// @brief default constructor 
 Polygon::Polygon() {
 
@@ -8,12 +11,12 @@ Polygon::Polygon() {
 	area = 0.;
 	perimeter = 0.;
 
-} 
+}
 
 /// @brief copy constructor 
 /// @param r reference to the object that should be copied 
-Polygon::Polygon(const Polygon &p) {
-	
+Polygon::Polygon(const Polygon& p) {
+
 	cout << "Polygon - copy constructor" << endl;
 
 	Init(p);
@@ -30,16 +33,16 @@ Polygon::~Polygon() {
 /// @brief overload of operator = 
 /// @param p reference to the object on the right side of the operator 
 /// @return reference to the object on the left side of the operator 
-Polygon& Polygon::operator=(const Polygon &p) { 
+Polygon& Polygon::operator=(const Polygon& p) {
 
 	return *this;
-	
+
 }
 
 /// @brief overload of operator == 
 /// @param p reference to the object on the right side of the operator 
 /// @return true if the two objects have the same width and the same length  
-bool Polygon::operator==(const Polygon &r) { 
+bool Polygon::operator==(const Polygon& r) {
 	return false;
 }
 
@@ -54,9 +57,9 @@ void Polygon::Init() {
 
 /// @brief initialization of the object as a copy of an object 
 /// @param r reference to the object that should be copied 
-void Polygon::Init(const Polygon &p) {
+void Polygon::Init(const Polygon& p) {
 	Reset();
-	
+
 }
 
 /// @brief total reset of the object  
@@ -68,7 +71,7 @@ void Polygon::Reset() {
 /// @brief get the area of the object
 /// @return area 
 float Polygon::GetArea() {
-	
+
 	area = Area();
 	return area;
 
@@ -85,8 +88,8 @@ float Polygon::GetPerimeter() {
 
 /// @brief write an error message 
 /// @param string message to be printed
-void Polygon::ErrorMessage(const char *string) {
-	
+void Polygon::ErrorMessage(const char* string) {
+
 	cout << endl << "ERROR -- Polygon --";
 	cout << string << endl;
 
@@ -94,8 +97,8 @@ void Polygon::ErrorMessage(const char *string) {
 
 /// @brief write a warning message 
 /// @param string message to be printed
-void Polygon::WarningMessage(const char *string) {
-	
+void Polygon::WarningMessage(const char* string) {
+
 	cout << endl << "WARNING -- Polygon --";
 	cout << string << endl;
 
@@ -104,7 +107,7 @@ void Polygon::WarningMessage(const char *string) {
 
 /// @brief for debugging: all about the object
 void Polygon::Dump() {
-	
+
 	cout << endl;
 	cout << "Perimeter = " << GetPerimeter() << endl;
 	cout << "Area = " << GetArea() << endl;

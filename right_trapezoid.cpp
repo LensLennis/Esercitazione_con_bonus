@@ -18,7 +18,7 @@ Right_trapezoid::Right_trapezoid() {
 /// @param ts top side
 /// @param h height
 /// @param bs bottom side
-Right_trapezoid::Right_trapezoid(float ts, float h,float bs) {
+Right_trapezoid::Right_trapezoid(float ts, float h, float bs) {
 
 	Init();
 	SetDim(ts, h, bs);
@@ -28,7 +28,7 @@ Right_trapezoid::Right_trapezoid(float ts, float h,float bs) {
 
 /// @brief destructor 
 Right_trapezoid::~Right_trapezoid() {
-		
+	
 	Reset();
 	cout << "Right trapezoid - destructor" << endl;
 }
@@ -60,7 +60,7 @@ Right_trapezoid& Right_trapezoid::operator=(const Right_trapezoid& rt) {
 /// @return true if the two objects have the same top side, height and bottom side  
 bool Right_trapezoid::operator==(const Right_trapezoid& rt) {
 
-	if (rt.top_side == top_side && rt.height == height && rt.bottom_side== bottom_side)
+	if (rt.top_side == top_side && rt.height == height && rt.bottom_side == bottom_side)
 		return true;
 
 	return false;
@@ -137,8 +137,8 @@ void Right_trapezoid::SetDim(float ts, float h, float bs) {
 
 /// @brief calculating oblique side 
 /// @return side
-float Right_trapezoid::CalcSide(){
-	
+float Right_trapezoid::CalcSide() {
+
 	return (sqrt((top_side - bottom_side) * (top_side - bottom_side) + (height * height)));
 }
 
@@ -155,7 +155,7 @@ float Right_trapezoid::Area() {
 /// @return perimeter
 float Right_trapezoid::Perimeter() {
 
- 	return (top_side + bottom_side + height + CalcSide());
+	return (top_side + bottom_side + height + CalcSide());
 
 }
 
@@ -187,7 +187,7 @@ float Right_trapezoid::GetBottomSide() {
 
 /// @brief getting oblique side
 /// @return side 
-float Right_trapezoid::GetSide()  {
+float Right_trapezoid::GetSide() {
 
 	return CalcSide();
 }
@@ -199,7 +199,7 @@ float Right_trapezoid::GetSide()  {
 /// @param ts top side
 /// @param h height
 /// @param bs bottom side
-void Right_trapezoid::GetDim(float& ts, float& h, float &bs) {
+void Right_trapezoid::GetDim(float& ts, float& h, float& bs) {
 
 	ts = top_side;
 	h = height;
@@ -210,7 +210,7 @@ void Right_trapezoid::GetDim(float& ts, float& h, float &bs) {
 /// @brief getting area
 /// @return area
 float Right_trapezoid::GetArea() {
-	
+
 	return Area();
 }
 
@@ -255,13 +255,13 @@ void Right_trapezoid::Dump() {
 	cout << "*--------------------*" << endl;
 	cout << endl;
 	Polygon::Dump();
-	
+
 }
 
 
 void Right_trapezoid::Draw() {
-	
-		
+
+	cout << "I'm drawing a right trapezoid: " << endl;
 
 }
 
@@ -279,7 +279,7 @@ ostream& operator << (ostream& out, Right_trapezoid& r) {
 /// @param r right operand
 /// @return input
 istream& operator >> (istream& in, Right_trapezoid& r) {
-	float l;							
+	float l;
 	in >> l;
 	r.SetTopSide(l);
 	in >> l;

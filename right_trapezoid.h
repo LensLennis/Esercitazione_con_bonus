@@ -13,7 +13,7 @@ using namespace std;
 
 /// @class right_trapezoid
 /// @brief to manage an object with the shape of a right_trapezoid
-class Right_trapezoid : public Polygon 
+class Right_trapezoid : public Polygon
 {
 private:
 	float top_side;
@@ -22,23 +22,24 @@ private:
 	float CalcSide();			//If there are other subclasses	this is virtual
 	float Area();				//If there are other subclasses	this is virtual
 	float Perimeter();			//If there are other subclasses	this is virtual
-	
+
 public:
 
 	/// @name CONSTRUCTORS/DESTRUCTOR
 	/// @{
 	Right_trapezoid();
-	Right_trapezoid(float ts, float h, float bs );
+	Right_trapezoid(float ts, float h, float bs);
 	Right_trapezoid(const Right_trapezoid& rt);
 
 	~Right_trapezoid();			//If there are other subclasses	this is virtual
+
 	/// @}
 
 	/// @name OPERATORS
 	/// @{
 	Right_trapezoid& operator=(const Right_trapezoid& rt);
 	bool operator==(const Right_trapezoid& rt);
-	
+
 
 	/// @}
 
@@ -53,8 +54,8 @@ public:
 	/// @name GETTERS / SETTERS
 	/// @{
 	void SetDim(float ts, float h, float bs);
-	void SetTopSide (float ts);
-	void SetHeight (float h);
+	void SetTopSide(float ts);
+	void SetHeight(float h);
 	void SetBottomSide(float bs);
 
 	void GetDim(float& ts, float& h, float& bs);
