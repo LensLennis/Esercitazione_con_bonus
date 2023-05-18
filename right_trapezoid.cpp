@@ -247,7 +247,6 @@ void Right_trapezoid::Dump() {
 	cout << endl;
 	cout << "*---Right trapezoid---*" << endl;
 	cout << "| " << endl;
-
 	cout << "|Top side = " << top_side << endl;
 	cout << "|Height = " << height << endl;
 	cout << "|Bottom side = " << bottom_side << endl;
@@ -258,11 +257,17 @@ void Right_trapezoid::Dump() {
 
 }
 
-
+/// @brief Draws a trapezoid
 void Right_trapezoid::Draw() {
 
 	cout << "I'm drawing a right trapezoid: " << endl;
-
+	cout << "\t      " << top_side << endl;
+	cout << "\t *----------*" << endl;
+	cout << "\t |           \\" << endl;
+	cout << height <<"\t"<< " |            \\" << GetSide() << endl;
+	cout << "\t |             \\" << endl;
+	cout << "\t *--------------*" << endl;
+	cout << "\t      "<<bottom_side << endl;
 }
 
 /// @brief Defining the operator <<

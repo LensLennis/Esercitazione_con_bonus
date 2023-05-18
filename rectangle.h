@@ -30,7 +30,7 @@ public:
 	Rectangle(float w, float l);
 	Rectangle(const Rectangle& r);
 
-	~Rectangle();
+	~Rectangle();			//Virtual if there are subclasses
 	
 	/// @}
 	
@@ -70,7 +70,11 @@ public:
 	void Dump();
 	/// @}
 
+	/// @name DRAW
+	/// @{
 	void Draw();
+	/// @}
+
 };
 
 #endif

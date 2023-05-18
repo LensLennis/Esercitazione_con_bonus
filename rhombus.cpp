@@ -55,6 +55,30 @@ bool Rhombus::operator==(const Rhombus& r)
 		return true;
 	return false;
 }
+
+/// @brief default initialization of the object
+void Rhombus::Init() {
+	Reset();
+	diagH = 0.;
+	diagV = 0.;
+}
+
+/// @brief initialization of the object as a copy of an object 
+/// @param rt reference to the object that should be copied 
+void Rhombus::Init(const Rhombus& r) {
+	Reset();
+	diagH = r.diagH;
+	diagV = r.diagV;
+
+}
+
+/// @brief total reset of the object  
+void Rhombus::Reset() {
+	diagH = 0.;
+	diagV = 0.;
+}
+
+
 /// @brief Modify a new horizontal diagonal
 /// @param dH New value of horizontal diagonal
 void Rhombus::SetDiagH(float dH)
@@ -153,8 +177,53 @@ float Rhombus::Area()
 	return (diagH * diagV) / 2;
 }
 
+/// @brief write an error message 
+/// @param string message to be printed
+void Rhombus::ErrorMessage(const char* string) {
+
+	cout << endl << "ERROR -- Rhombus --";
+	cout << string << endl;
+
+}
+
+/// @brief write a warning message 
+/// @param string message to be printed
+void Rhombus::WarningMessage(const char* string) {
+
+	cout << endl << "WARNING -- Rhombus --";
+	cout << string << endl;
+
+}
+
+/// @brief for debugging: all about the object
+void Rhombus::Dump() {
+	cout << endl;
+	cout << "*---Right trapezoid---*" << endl;
+	cout << "| " << endl;
+	cout << "|Horizontal Diagonal = " << diagH << endl;
+	cout << "|Vertical Diagonal = " << diagV << endl;
+	cout << "|Side = " << GetSide() << endl;
+	cout << "*--------------------*" << endl;
+	cout << endl;
+	Polygon::Dump();
+}
+
+/// @brief draws a rhombus
 void Rhombus::Draw() {
 
 	cout << "I'm drawing a Rhombus: " << endl;
+	cout << "\t       " << diagV << endl;
+	cout << "\t       *" << endl;
+	cout << "\t      /|\\ " << endl;
+	cout << "\t     / | \\" << endl;
+	cout << "\t    /  |  \\" << endl;
+	cout << "\t   *---+---* " <<   diagH  << endl;
+	cout << "\t    \\  |  /" << endl;
+	cout << "\t     \\ | /"<<GetSide()<<  endl;
+	cout << "\t      \\|/" << endl;
+	cout << "\t       *" << endl;
+
+
+
 
 }

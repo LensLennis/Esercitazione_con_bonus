@@ -32,15 +32,12 @@ public:
 	Right_trapezoid(const Right_trapezoid& rt);
 
 	~Right_trapezoid();			//If there are other subclasses	this is virtual
-
 	/// @}
 
 	/// @name OPERATORS
 	/// @{
 	Right_trapezoid& operator=(const Right_trapezoid& rt);
 	bool operator==(const Right_trapezoid& rt);
-
-
 	/// @}
 
 	/// @name BASIC HANDLING
@@ -75,11 +72,24 @@ public:
 	void WarningMessage(const char* string);
 	void Dump();
 	/// @}
-
+	
+	/// @name DRAW
+	/// @{
 	void Draw();
+	/// @}
 
 };
+
+/// @brief defines the operator <<
+/// @param out output
+/// @param r right operand
+/// @return output
 ostream& operator<< (ostream& out, Right_trapezoid& r);
+
+/// @brief defines the operator >>
+/// @param in input
+/// @param r right operand
+/// @return input
 istream& operator>> (istream& in, Right_trapezoid& r);
 
 #endif

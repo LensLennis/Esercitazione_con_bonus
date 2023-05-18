@@ -4,11 +4,14 @@
 #include <iostream>
 
 #define N 100               //dimension of polygon pointer array
-int menu();
+/// @brief menu with choice
+/// @return choice
+int menu();                 
 
-
+/// @brief lets you create a polygon (or more) and draw it
 void main ()
 {  
+
     Polygon* polygonarray[N] = { 0 };               //all polygon pointers array inizialized to 0 
     int index = 0;
     while (true) {
@@ -19,6 +22,7 @@ void main ()
             float l, w;
             cout << "Insert length and width: ";
             scanf_s("%f %f", &l,&w);
+            cin.get();
             polygonarray[index] = new Rectangle(l,w);
             index++;
             break;
@@ -27,6 +31,7 @@ void main ()
             float h, v;
             cout << "Insert horizontal diagonal and vertical diagonal: ";
             scanf_s("%f %f", &h, &v);
+            cin.get();
             polygonarray[index] = new Rhombus(h,v);
             index++;
             break;
@@ -35,6 +40,7 @@ void main ()
             float ts,he,bs;
             cout << "Insert top side, height and bottom side: ";
             scanf_s("%f %f %f", &ts, &he, &bs);
+            cin.get();
             polygonarray[index] = new Right_trapezoid(ts,he,bs);
             index++;
             break;
@@ -78,16 +84,20 @@ void main ()
 
 int menu()
 {
-    int scelta = 0;
-    cout << "Choose an option, please:" << endl;
+    int choice = 0;
+    cout << "*----------------------------*"<<endl;
+    cout << "| Choose an option, please:  |" << endl;
+    cout << "*----------------------------*" << endl;
+    cout << "| 1: Create a rectangle      |" << endl;
+    cout << "| 2: Create a rhombus        |" << endl;
+    cout << "| 3: Create a right trapezoid|" << endl;
+    cout << "| 4: Draw all                |" << endl;
+    cout << "| 0: exit                    |" << endl;
+    cout << "*----------------------------*" << endl;
     cout << endl;
-    cout << "1: Create a rectangle " << endl;
-    cout << "2: Create a rhombus" << endl;
-    cout << "3: Create a right trapezoid" << endl;
-    cout << "4: Draw all" << endl;
-    cout << "0: exit" << endl;
-    scanf_s("%d", &scelta);
-    return scelta;
+
+    scanf_s("%d", &choice);
+    cin.get();
+    return choice;
 }
    
-

@@ -177,7 +177,8 @@ float Rectangle::GetArea() {
 	return Area();
 
 }
-
+/// @brief Computes the area of the perimeter
+/// @return perimeter of the rectangle
 float Rectangle::Perimeter() {
 	return 2 * (width + length);
 }
@@ -223,9 +224,15 @@ void Rectangle::Dump() {
 
 }
 
-
+/// @brief draws the rectangle
 void Rectangle::Draw() {
 
 	cout << "I'm drawing a Rectangle: " << endl;
-
+	cout << "\t*----------*" << endl;
+	cout << "\t|          |" << endl;
+	cout << "\t|          |" <<length<< endl;
+	cout << "\t|          |" << endl;
+	cout << "\t*----------*" << endl;
+	cout << "\t     " << width<< endl;
+	cout << "" << endl;
 }
